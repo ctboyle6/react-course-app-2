@@ -22,6 +22,8 @@ const AddUser = (props) => {
       alert('Age must be greater than 0');
       return;
     }
+
+    // Submit
     props.onUserSubmit(enteredUsername, enteredAge); // send to App
 
     // Reset
