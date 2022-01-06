@@ -13,6 +13,9 @@ const AddUser = (props) => {
     event.preventDefault();
 
     props.onUserSubmit(enteredUsername, enteredAge); // send to App
+
+    setEnteredUsername('');
+    setEnteredAge('');
   };
 
   const usernameChangeHandler = (event) => {
