@@ -9,23 +9,25 @@ import ErrorModal from "../UI/ErrorModal";
 const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  let errorModalMessage;
+  const [error, setError] = useState();
 
   const addUserHandler = (event) => {
     event.preventDefault();
 
     // VALIDATION
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
-      errorModalMessage = "Username and Age may not be blank";
-      setIsModalVisible(true);
+      setError({
+        title: 'Invalid Input',
+        message: 'Please enter a valid name and age (non-empty values).',
+      });
       return;
     }
 
     if (+enteredAge < 1) {
-      errorModalMessage = "Age must be greater than 0";
-      setIsModalVisible(true);
+      setError({
+        title: 'Invalid Input',
+        message: 'Please enter an age greater than 0',
+      });
       return;
     }
 
@@ -46,15 +48,15 @@ const AddUser = (props) => {
   };
 
   const modalCloseHandler = () => {
-    setIsModalVisible(false);
+    setError();
   };
 
   return (
     <div>
-      {isModalVisible && (
+      {error && (
         <ErrorModal
-          title='Error, something went wrong!'
-          message={errorModalMessage}
+          title={error.title}
+          message={error.message}
           onModalClose={modalCloseHandler}
         />
       )}
