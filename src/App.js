@@ -3,10 +3,10 @@ import AddUser from "./components/Users/AddUser";
 import UserList from "./components/Users/UserList";
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const [userList, setUserList] = useState([]);
 
   const addNewUser = (newUser) => {
-    setUsers((prevUsers) => {
+    setUserList((prevUsers) => {
       return [newUser, ...prevUsers];
     });
   };
@@ -24,7 +24,7 @@ function App() {
   return (
     <div>
       <AddUser onUserSubmit={newUserSubmit} />
-      <UserList users={users} />
+      <UserList users={userList} />
     </div>
   );
 }
