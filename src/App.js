@@ -9,8 +9,6 @@ function App() {
     setUsers((prevUsers) => {
       return [newUser, ...prevUsers];
     });
-
-    console.log(users);
   };
 
   const newUserSubmit = (username, age) => {
@@ -26,7 +24,7 @@ function App() {
   return (
     <div>
       <AddUser onUserSubmit={newUserSubmit} />
-      <UserList />
+      <UserList users={users} />
     </div>
   );
 }
