@@ -12,8 +12,19 @@ const AddUser = (props) => {
   const addUserHandler = (event) => {
     event.preventDefault();
 
+    // VALIDATION
+    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+      alert('Username and Age may not be blank');
+      return;
+    }
+
+    if (+enteredAge < 1) {
+      alert('Age must be greater than 0');
+      return;
+    }
     props.onUserSubmit(enteredUsername, enteredAge); // send to App
 
+    // Reset
     setEnteredUsername('');
     setEnteredAge('');
   };
