@@ -1,18 +1,19 @@
-import styles from './AddUser.module.css';
+import styles from "./AddUser.module.css";
 
-const AddUser = () => {
+const AddUser = (props) => {
   return (
     <form>
       <div className={styles.input}>
-        <label>Username</label>
-        <input type="text"></input>
+        <label htmlFor="username">Username</label>
+        <input id="username" type="text"></input>
       </div>
       <div className={styles.input}>
-        <label>Age</label>
-        <input type="number"></input>
+        <label htmlFor="age">Age</label>
+        <input id="age" type="number"></input>
       </div>
+      <button type="submit">Add User</button>
     </form>
   );
-}
+};
 
-export default AddUser
+export default AddUser;
