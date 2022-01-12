@@ -22,10 +22,10 @@ function App() {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <AddUser onUserSubmit={newUserSubmit} />
       <UserList users={userList} />
-    </div>
+    </React.Fragment>
   );
 }
 
