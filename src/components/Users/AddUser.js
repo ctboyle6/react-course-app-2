@@ -28,8 +28,8 @@ const AddUser = (props) => {
 
     if (+enteredUserAge < 1) {
       setError({
-        title: 'Invalid Input',
-        message: 'Please enter an age greater than 0',
+        title: "Invalid Input",
+        message: "Please enter an age greater than 0",
       });
       return;
     }
@@ -38,8 +38,8 @@ const AddUser = (props) => {
     props.onUserSubmit(enteredName, enteredUserAge); // send to App
 
     // Reset
-    nameInputRef.current.value = '';
-    ageInputRef.current.value = '';
+    nameInputRef.current.value = "";
+    ageInputRef.current.value = "";
   };
 
   const modalCloseHandler = () => {
@@ -58,17 +58,9 @@ const AddUser = (props) => {
       <Card className={styles.input}>
         <form onSubmit={addUserHandler}>
           <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            type="text"
-            ref={nameInputRef}
-          ></input>
+          <input id="username" type="text" ref={nameInputRef}></input>
           <label htmlFor="age">Age</label>
-          <input
-            id="age"
-            type="number"
-            ref={ageInputRef}
-          ></input>
+          <input id="age" type="number" ref={ageInputRef}></input>
           <Button type="submit">Add User</Button>
         </form>
       </Card>
